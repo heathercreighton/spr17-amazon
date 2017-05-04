@@ -1,6 +1,6 @@
 <div class="center-it">
-	<h1>Welcome to Heather's Funshop</h1>
-<h3>Hope you find something nice!</h3>
+	<h1>Welcome to Crayton Co!</h1>
+<h3>We have what you want!</h3>
 </div>
 
 
@@ -31,6 +31,7 @@
         <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
       </div>
       <div class="modal-body">
+      	<p><%= image_tag product.image.url, style: "width:250px; height:200px;" %></p>
         <h2><%= product.description %></h2>
         <h4><%= number_to_currency product.price %></h4>
         <h4>We have <%=product.quantity %> in stock!</h4>
