@@ -22,12 +22,35 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs">
          		<li><%= link_to "Home", root_path %></li>
-           <li><%= link_to "Categories", categorical_path %></li>
           <% if user_signed_in? %>
 	           <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
 	           <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-          
+	        <% else %>
+	         		 <li><%= link_to "Sign in ", new_user_session_path %></li> 	
           <% end %>
+
+
+          <li class="dropdown">
+    				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+	        	<ul class="dropdown-menu">
+		    			<% @categories.each do |category| %>
+	                  <li><%= link_to category.name, categorical_path(category_id: category.id)%></li>
+	            <% end %>
+	        	</ul>
+     			</li>
+
+     			<!-- Brands -->
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands<span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+					    <% @brands.each do |brand| %>
+					      <li><%= link_to brand, branding_path(brand: brand) %></li>
+					    <% end %>
+					      <li><%= link_to 'All', root_path %></li>
+					  </ul>
+					</li> 
+					<!-- End Brands --> 
+          <li><%= link_to "View Cart", view_order_path %></li>  
    
       </ul>
 

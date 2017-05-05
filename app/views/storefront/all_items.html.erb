@@ -4,52 +4,12 @@
 </div>
 
 
-<div class="row">
-	<% @products.each do |product| %>
-		<div class="col-md-6">
-			<div class="well center-it">
-				<p><%= image_tag product.image.thumb %></p>
-				<h3><%= link_to product.name, product %></h3>
-				<p><%= number_to_currency product.price %></p>
-
-				<p>
-					<a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>" ><span class="glyphicon glyphicon-plus">
-
-					</span>Quick Info
-					</a>
-				</p>
-				<p>Made By <strong><%=product.brand %></strong></p>
-			</div>
-		</div>
-
-		<!-- Modal -->
-<div class="modal fade" id="myModal_<%=product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
-      </div>
-      <div class="modal-body">
-      	<p><%= image_tag product.image.url, style: "width:250px; height:200px;" %></p>
-        <h2><%= product.description %></h2>
-        <h4><%= number_to_currency product.price %></h4>
-        <h4>We have <%=product.quantity %> in stock!</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'productdisplay' %>
 
 
 
 
-
-	<% end %>
-</div>
+	
 
 
 
