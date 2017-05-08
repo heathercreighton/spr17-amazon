@@ -25,6 +25,8 @@ gem 'carrierwave'
 gem 'cancancan'
 gem 'pry-rails'
 gem 'mini_magick'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'charges/create'
+
+  get 'charges/new'
+
+  resources :charges
+
+post 'order_complete' => 'cart#order_complete'
 post 'add_to_cart' => 'cart#add_to_cart'
 
   get 'view_order' =>'cart#view_order'
@@ -12,7 +19,7 @@ post 'add_to_cart' => 'cart#add_to_cart'
 
   get 'branding' => 'storefront#items_by_brand'
   
-
+  get 'admin' => 'products#index'
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
